@@ -1,4 +1,5 @@
 const axios = require('axios');
+// let storedBlocks = [];
 let storedBlocks = [
   {
     hash: 'b35265965f6f14c5d692b2030922fce53067fc0e9d8c8490c31d4ecd3e46500c',

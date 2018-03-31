@@ -20,7 +20,7 @@ class Blocks extends Component {
     this.deleteBlockFromNode = this.deleteBlockFromNode.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.readBlocksFromNode();
   }
 
@@ -38,7 +38,8 @@ class Blocks extends Component {
     });
   }
 
-  addBlockToNode(hash) {
+  addBlockToNode() {
+    const { hash } = this.state;
     axios.post(`${blocksBaseURL}`, { hash }).then((res) => {
       this.setState({
         fromNodeBlocks: res.data
@@ -55,8 +56,6 @@ class Blocks extends Component {
   }
 
   render() {
-    const { fromNodeBlocks } = this.state;
-
     return (
       <div className="App">
         <input
@@ -66,7 +65,8 @@ class Blocks extends Component {
           placeholder="Enter Block Hash"
           onChange={this.handleChange}
         />
-        <button onClick={this.addBlockToNodeFn}>Search for Block</button>
+        <button onClick={this.addBlockToNode}>Search for Block</button>
+        <BlockSearch blockArray={this.state.fromNodeBlocks} />
       </div>
     );
   }

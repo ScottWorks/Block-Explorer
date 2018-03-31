@@ -4,21 +4,30 @@ import BlockHistory from './BlockHistory';
 class BlockSearch extends Component {
   render() {
     // Returns the last element in the blockArray
-    let blockArrayLength = this.props.blockArray.length - 1;
-    const blocks = this.props.blockArray.map((elem, idx) => {
-      if (blockArrayLength === idx) {
-        return (
-          <div key={idx}>
-            <p>Hash: {elem.hash}</p>
-          </div>
-        );
-      }
-    });
+    const { blockArray } = this.props;
+
+    let blockHistory = blockArray.slice(0, blockArray.length - 1);
+    let lastSearch = blockArray[blockArray.length - 1];
+
+    const displayLastSearch =
+      blockArray.length > 0 ? (
+        <div>
+          <p>Hash: 0x{lastSearch.hash}</p>
+          <p>Block Height: {lastSearch.height}</p>
+          <p>total: {lastSearch.total}</p>
+          <p>fees: {lastSearch.fees}</p>
+          <p>size: {lastSearch.size}</p>
+          <p>nonce: {lastSearch.nonce}</p>
+          <p>prev_block: 0x{lastSearch.prev_block}</p>
+          <p>mrkl_root: {lastSearch.mrkl_root}</p>
+          <p>time: {lastSearch.time}</p>
+        </div>
+      ) : null;
+
     return (
       <div className="App">
-        <h1>Results</h1>
-        {/* <BlockHistory searchHistory={this.props.blocks} /> */}
-        {blocks}
+        <h1>Searched Block</h1>
+        {displayLastSearch}
       </div>
     );
   }
