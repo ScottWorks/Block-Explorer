@@ -10,7 +10,8 @@ class Blocks extends Component {
     super();
     this.state = {
       hash: '',
-      fromNodeBlocks: [],
+      nodeStoredBlocks: [],
+      nodeSearchBlock: [],
       fromAPIBlocks: []
     };
 
@@ -33,7 +34,7 @@ class Blocks extends Component {
   readBlocksFromNode() {
     axios.get(`${blocksBaseURL}`).then((res) => {
       this.setState({
-        fromNodeBlocks: res.data
+        nodeStoredBlocks: res.data
       });
     });
   }
@@ -41,8 +42,12 @@ class Blocks extends Component {
   addBlockToNode() {
     const { hash } = this.state;
     axios.post(`${blocksBaseURL}`, { hash }).then((res) => {
+      let blockHistory = res.data.slice(1, res.data.length);
+      let lastSearch = res.data[0];
+
       this.setState({
-        fromNodeBlocks: res.data
+        nodeStoredBlocks: blockHistory,
+        nodeSearchBlock: lastSearch
       });
     });
   }
@@ -50,7 +55,7 @@ class Blocks extends Component {
   deleteBlockFromNode(id) {
     axios.delete(`${blocksBaseURL}/${id}`).then((res) => {
       this.setState({
-        fromNodeBlocks: res.data
+        nodeStoredBlocks: res.data
       });
     });
   }
@@ -66,7 +71,10 @@ class Blocks extends Component {
           onChange={this.handleChange}
         />
         <button onClick={this.addBlockToNode}>Search for Block</button>
-        <BlockSearch blockArray={this.state.fromNodeBlocks} />
+        <BlockSearch
+          searchHistory={this.state.nodeStoredBlocks}
+          lastSearch={this.state.nodeSearchBlock}
+        />
       </div>
     );
   }
