@@ -6,7 +6,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Block Explorer</h1>
         <Blocks />
       </div>
     );

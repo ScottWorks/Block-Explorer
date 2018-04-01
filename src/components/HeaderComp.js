@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-function Header(props) {
+function HeaderComp(props) {
   return (
     <div className="App">
       <h3>{props.children}</h3>
@@ -8,4 +8,4 @@ function Header(props) {
   );
 }
 
-export default Header;
+export default HeaderComp;
