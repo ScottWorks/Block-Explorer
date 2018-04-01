@@ -1,4 +1,5 @@
 const axios = require('axios');
+let latestBlock = [];
 // let storedBlocks = [];
 let storedBlocks = [
   {
@@ -107,7 +108,6 @@ let storedBlocks = [
     id: 2
   }
 ];
-
 let id = storedBlocks.length;
 
 module.exports = {
@@ -125,6 +125,7 @@ module.exports = {
           .end();
       });
   },
+
   readStoredBlocks: (req, res) => {
     res
       .status(200)
@@ -142,5 +143,16 @@ module.exports = {
       .status(200)
       .send(storedBlocks)
       .end();
+  },
+
+  getLatestBlock: (req, res) => {
+    latestBlock = [];
+    axios.get('https://api.blockcypher.com/v1/eth/main').then((axiosResp) => {
+      latestBlock.unshift(axiosResp.data);
+      res
+        .status(200)
+        .send(latestBlock)
+        .end();
+    });
   }
 };

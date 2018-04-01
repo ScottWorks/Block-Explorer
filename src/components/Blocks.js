@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BlockSearch from './BlockSearch';
 import BlockList from './BlockList';
 import Button from './Button';
+import Header from './Header';
 import axios from 'axios';
 
 const blocksBaseURL = '/api/blocks';
@@ -65,6 +66,8 @@ class Blocks extends Component {
   render() {
     return (
       <div className="App">
+        <Header children={'Block Explorer'} />
+
         <input
           type="text"
           name="hash_input"

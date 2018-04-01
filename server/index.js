@@ -11,5 +11,9 @@ app.post(`${blocksBaseURL}`, blockCtrl.addBlock);
 app.get(`${blocksBaseURL}`, blockCtrl.readStoredBlocks);
 app.delete(`${blocksBaseURL}/:id`, blockCtrl.deleteBlock);
 
+// BLOCK DATA
+const latestBlockBaseURL = '/api/blocks/latest';
+app.get(`${latestBlockBaseURL}`, blockCtrl.getLatestBlock);
+
 const port = 3005;
 app.listen(port, () => console.log(`Listening on port: ${port}`));
