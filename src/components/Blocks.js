@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BlockSearch from './BlockSearch';
 import BlockList from './BlockList';
+import LatestBlock from './LatestBlock';
 import Button from './Button';
 import Header from './Header';
 import axios from 'axios';
@@ -14,13 +15,14 @@ class Blocks extends Component {
       hash: '',
       nodeStoredBlocks: [],
       nodeSearchBlock: [],
-      fromAPIBlocks: []
+      latestBlock: []
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.readBlocksFromNode = this.readBlocksFromNode.bind(this);
     this.addBlockToNode = this.addBlockToNode.bind(this);
     this.deleteBlockFromNode = this.deleteBlockFromNode.bind(this);
+    this.getLatestBlock = this.getLatestBlock.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +30,7 @@ class Blocks extends Component {
   }
 
   handleChange(event) {
+    console.log(event.target.value);
     this.setState({
       hash: event.target.value
     });
@@ -63,9 +66,35 @@ class Blocks extends Component {
     });
   }
 
+  getLatestBlock() {
+    axios.get(`${blocksBaseURL}/latest`).then((res) => {
+      this.setState({
+        latestBlock: res.data[0]
+      });
+    });
+  }
+
   render() {
+    const { nodeStoredBlocks, nodeSearchBlock } = this.state;
+
+    const searchCacheNotEmpty =
+      nodeSearchBlock.length !== 0 ? (
+        <BlockSearch
+          searchHistory={nodeStoredBlocks}
+          lastSearch={nodeSearchBlock}
+          removeBlock={this.deleteBlockFromNode}
+        />
+      ) : null;
+
     return (
       <div className="App">
+        <LatestBlock latestBlock={this.state.latestBlock} />
+
+        <Button
+          function={this.getLatestBlock}
+          children={'Get the Latest Block'}
+        />
+
         <Header children={'Block Explorer'} />
 
         <input
@@ -76,12 +105,10 @@ class Blocks extends Component {
           placeholder="Enter Block Hash"
           onChange={this.handleChange}
         />
+
         <Button function={this.addBlockToNode} children={'Search for Block'} />
-        <BlockSearch
-          searchHistory={this.state.nodeStoredBlocks}
-          lastSearch={this.state.nodeSearchBlock}
-          removeBlock={this.deleteBlockFromNode}
-        />
+
+        {searchCacheNotEmpty}
       </div>
     );
   }
