@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import BlockHistoryTable from './BlockHistoryTable';
+import Header from './Header';
 
 class BlockHistory extends Component {
   render() {
-    const { blockHistory } = this.props;
+    const { blockHistory, removeBlock } = this.props;
     return (
       <div className="App">
-        <h1>Search History</h1>
-
+        <Header children={'Search History'} />
         {blockHistory.map((elem) => (
           <BlockHistoryTable
+            id={elem.id}
             key={elem.id}
             hash={elem.hash}
             blockHeight={elem.height}
             time={elem.time}
+            removeBlock={removeBlock}
           />
         ))}
       </div>
