@@ -118,7 +118,7 @@ module.exports = {
       .then((axiosResp) => {
         axiosResp.data.id = id;
         id++;
-        storedBlocks.push(axiosResp.data);
+        storedBlocks.unshift(axiosResp.data);
         res
           .status(200)
           .send(storedBlocks)
