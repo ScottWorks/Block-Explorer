@@ -15,9 +15,37 @@
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 75pt;
 }
 
-.App-intro {
+/* .App-intro {
   font-size: large;
+} */
+
+.button_component {
+  margin: 0px, 20px;
+}
+
+.title_component {
+  margin: 20px;
+}
+
+h1 {
+  font-size: 75pt !important;
+}
+
+h3 {
+  font-size: 50pt !important;
+}
+
+button {
+  font-size: 1.5rem !important;
+}
+
+th {
+  font-size: 1.5rem;
+}
+
+tr {
+  font-size: 1.5rem;
 }

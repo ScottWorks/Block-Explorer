@@ -34,10 +34,10 @@ class Blocks extends Component {
 
   componentDidMount() {
     this.readBlocksFromNode();
+    this.getLatestBlock();
   }
 
   handleChange(event) {
-    console.log(event.target.value);
     this.setState({
       hash: event.target.value
     });
@@ -91,46 +91,38 @@ class Blocks extends Component {
 
     const searchCacheNotEmpty =
       nodeSearchBlock.length !== 0 ? (
-        <Jumbotron>
-          <BlockSearch
-            searchHistory={nodeStoredBlocks}
-            lastSearch={nodeSearchBlock}
-            removeBlock={this.deleteBlockFromNode}
-          />
-        </Jumbotron>
+        <BlockSearch
+          searchHistory={nodeStoredBlocks}
+          lastSearch={nodeSearchBlock}
+          removeBlock={this.deleteBlockFromNode}
+        />
       ) : null;
 
     return (
       <div className="App">
-        <Jumbotron>
-          <h1>Block Explorer</h1>
-          <ButtonComp
-            function={this.getLatestBlock}
-            children={'Get the Latest Block'}
-          />
-          {latestBlockCacheNotEmpty}
-        </Jumbotron>
-        <Jumbotron>
-          <HeaderComp children={'Block Finder'} />
-          <InputGroup>
-            <InputGroupAddon addonType="prepend">
-              <ButtonComp
-                function={this.addBlockToNode}
-                children={'Search for Block'}
-              />
-            </InputGroupAddon>
-            <Input
-              type="text"
-              name="hash_input"
-              id="hash_input"
-              size="60"
-              value={this.state.hash}
-              placeholder="Enter Block Hash"
-              onChange={this.handleChange}
+        <ButtonComp
+          function={this.getLatestBlock}
+          children={'Get the Latest Block'}
+        />
+        {latestBlockCacheNotEmpty}
+        <HeaderComp children={'Block Finder'} />
+        <InputGroup>
+          <InputGroupAddon addonType="prepend">
+            <ButtonComp
+              function={this.addBlockToNode}
+              children={'Search for Block'}
             />
-          </InputGroup>
-          {searchCacheNotEmpty}
-        </Jumbotron>
+          </InputGroupAddon>
+          <Input
+            type="text"
+            name="hash_input"
+            id="hash_input"
+            value={this.state.hash}
+            placeholder="Enter Block Hash"
+            onChange={this.handleChange}
+          />
+        </InputGroup>
+        {searchCacheNotEmpty}
       </div>
     );
   }

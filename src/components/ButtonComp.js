@@ -3,7 +3,7 @@ import { Button } from 'reactstrap';
 
 function ButtonComp(props) {
   return (
-    <div className="App">
+    <div className="button_component">
       <Button onClick={() => props.function()}>{props.children}</Button>
     </div>
   );

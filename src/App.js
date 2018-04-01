@@ -6,6 +6,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <div>
+          <h1 className="title_component">Block Explorer</h1>
+          <hr />
+        </div>
         <Blocks />
       </div>
     );

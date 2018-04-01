@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 function HeaderComp(props) {
   return (
-    <div className="App">
+    <div className="title_component">
       <h3>{props.children}</h3>
     </div>
   );
