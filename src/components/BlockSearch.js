@@ -8,7 +8,7 @@ class BlockSearch extends Component {
 
     return (
       <div className="App">
-        <Header children={'Search Results'} />
+        <Header children={'Block Details'} />
         <p>Hash: 0x{lastSearch.hash}</p>
         <p>Block Height: {lastSearch.height}</p>
         <p>total: {lastSearch.total}</p>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import BlockSearch from './BlockSearch';
-import BlockList from './BlockList';
 import LatestBlock from './LatestBlock';
 import Button from './Button';
 import Header from './Header';
@@ -75,7 +74,12 @@ class Blocks extends Component {
   }
 
   render() {
-    const { nodeStoredBlocks, nodeSearchBlock } = this.state;
+    const { nodeStoredBlocks, nodeSearchBlock, latestBlock } = this.state;
+
+    const latestBlockCacheNotEmpty =
+      latestBlock.length !== 0 ? (
+        <LatestBlock latestBlock={latestBlock} />
+      ) : null;
 
     const searchCacheNotEmpty =
       nodeSearchBlock.length !== 0 ? (
@@ -88,14 +92,14 @@ class Blocks extends Component {
 
     return (
       <div className="App">
-        <LatestBlock latestBlock={this.state.latestBlock} />
-
         <Button
           function={this.getLatestBlock}
           children={'Get the Latest Block'}
         />
 
-        <Header children={'Block Explorer'} />
+        {latestBlockCacheNotEmpty}
+
+        <Header children={'Block Finder'} />
 
         <input
           type="text"
