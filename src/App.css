@@ -2,16 +2,34 @@ body {
   margin: auto;
   padding: 40px;
   font-family: sans-serif;
-  background-image: url('./images/geometric-tessellation.png');
+  /* background-image: url('./images/pattern.jpg');
   background-size: cover;
-  /* background-position: center; */
+  background-position: center; */
+}
+
+.crypto {
+  fill: white;
+  stroke: black;
+  stroke-dasharray: 800;
+  stroke-dashoffset: 0;
+  -webkit-animation: dash 20s linear forwards;
+  animation: dash 20s linear forwards;
+}
+
+@-webkit-keyframes dash {
+  from {
+    stroke-dashoffset: 800;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 .App {
   text-align: center;
   background-color: #222;
   padding: 20px;
-  margin: 50px 400px;
+  margin: 50px 350px;
   color: white;
 }
 
@@ -52,11 +70,11 @@ button {
 }
 
 th {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 tr {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .table_container {

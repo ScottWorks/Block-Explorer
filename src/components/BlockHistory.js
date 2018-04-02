@@ -11,29 +11,27 @@ class BlockHistory extends Component {
       <div className="table_container">
         <HeaderComp children={'Search History'} />
         <hr />
-        <div className="table_child_container">
-          <Table dark>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Hash</th>
-                <th>Block Height</th>
-                <th>Age</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            {blockHistory.map((elem) => (
-              <BlockHistoryTable
-                id={elem.id}
-                key={elem.id}
-                hash={elem.hash}
-                blockHeight={elem.height}
-                time={elem.time}
-                removeBlock={removeBlock}
-              />
-            ))}
-          </Table>
-        </div>
+        <Table dark>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Hash</th>
+              <th>Block Height</th>
+              <th>Age</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          {blockHistory.map((elem) => (
+            <BlockHistoryTable
+              id={elem.id}
+              key={elem.id}
+              hash={elem.hash}
+              blockHeight={elem.height}
+              time={elem.time}
+              removeBlock={removeBlock}
+            />
+          ))}
+        </Table>
       </div>
     );
   }

@@ -12,7 +12,9 @@ class BlockHistoryTable extends Component {
           <td>{hash}</td>
           <td>{blockHeight}</td>
           <td>{time}</td>
-          <Button onClick={() => removeBlock(id)}>Remove</Button>
+          <td>
+            <Button onClick={() => removeBlock(id)}>Remove</Button>
+          </td>
         </tr>
       </tbody>
     );
