@@ -4,8 +4,6 @@ body {
   padding: 20px;
   font-family: sans-serif;
   background-image: url('./images/Boxes.svg');
-  /* background-size: cover;
-  background-position: center; */
 }
 
 #Rectangle {
@@ -15,15 +13,6 @@ body {
   stroke-dashoffset: 0;
   -webkit-animation: dash 60s linear forwards;
   animation: dash 60s linear forwards;
-}
-
-@-webkit-keyframes dash {
-  from {
-    stroke-dashoffset: 1200;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
 }
 
 .App {
