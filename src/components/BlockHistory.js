@@ -19,6 +19,7 @@ class BlockHistory extends Component {
                 <th>Hash</th>
                 <th>Block Height</th>
                 <th>Age</th>
+                <th>Action</th>
               </tr>
             </thead>
             {blockHistory.map((elem) => (

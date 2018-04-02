@@ -2,10 +2,17 @@ body {
   margin: auto;
   padding: 40px;
   font-family: sans-serif;
+  background-image: url('./images/geometric-tessellation.png');
+  background-size: cover;
+  /* background-position: center; */
 }
 
 .App {
   text-align: center;
+  background-color: #222;
+  padding: 20px;
+  margin: 50px 400px;
+  color: white;
 }
 
 .App-logo {
@@ -16,7 +23,7 @@ body {
 .header {
   background-color: #222;
   height: 175px;
-  padding: 20px;
+  /* padding: 20px; */
   color: white;
 }
 
@@ -57,3 +64,10 @@ tr {
   flex-direction: column;
   justify-content: center;
 }
+
+/* .container{
+  background-color: #222;
+  height: 175px;
+  padding: 20px;
+  color: white;
+} */

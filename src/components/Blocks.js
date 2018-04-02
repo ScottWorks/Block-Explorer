@@ -93,7 +93,7 @@ class Blocks extends Component {
       ) : null;
 
     return (
-      <div className="App">
+      <div className="container">
         <div className="container">
           <ButtonComp
             function={this.getLatestBlock}
