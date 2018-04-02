@@ -8,28 +8,31 @@ class BlockHistory extends Component {
   render() {
     const { blockHistory, removeBlock } = this.props;
     return (
-      <div className="App">
+      <div className="table_container">
         <HeaderComp children={'Search History'} />
-        <Table dark>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Hash</th>
-              <th>Block Height</th>
-              <th>Age</th>
-            </tr>
-          </thead>
-          {blockHistory.map((elem) => (
-            <BlockHistoryTable
-              id={elem.id}
-              key={elem.id}
-              hash={elem.hash}
-              blockHeight={elem.height}
-              time={elem.time}
-              removeBlock={removeBlock}
-            />
-          ))}
-        </Table>
+        <hr />
+        <div className="table_child_container">
+          <Table dark>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Hash</th>
+                <th>Block Height</th>
+                <th>Age</th>
+              </tr>
+            </thead>
+            {blockHistory.map((elem) => (
+              <BlockHistoryTable
+                id={elem.id}
+                key={elem.id}
+                hash={elem.hash}
+                blockHeight={elem.height}
+                time={elem.time}
+                removeBlock={removeBlock}
+              />
+            ))}
+          </Table>
+        </div>
       </div>
     );
   }

@@ -8,8 +8,9 @@ class LatestBlock extends Component {
     const { latestBlock } = this.props;
 
     return (
-      <div className="App">
+      <div className="container">
         <HeaderComp children={'Latest Block'} />
+        <hr />
         <Table dark>
           <thead>
             <tr>
@@ -26,12 +27,6 @@ class LatestBlock extends Component {
             </tr>
           </thead>
         </Table>
-
-        {/* <HeaderComp children={'Latest Block'} />
-        <p>Hash: 0x{latestBlock.hash}</p>
-        <p>Block Height: {latestBlock.height}</p>
-        <p>time: {latestBlock.time}</p>
-        <p>prev_block: 0x{latestBlock.previous_hash}</p> */}
       </div>
     );
   }

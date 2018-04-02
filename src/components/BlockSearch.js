@@ -8,35 +8,9 @@ class BlockSearch extends Component {
     const { searchHistory, lastSearch } = this.props;
 
     return (
-      <div className="App">
+      <div className="container">
         <HeaderComp children={'Block Details'} />
-
-        {/* // <thead>
-        //   <tr>
-        //     <th>Hash: 0x{latestBlock.hash}</th>
-        //   </tr>
-        //   <tr>
-        //     <th>Block Height: {latestBlock.height}</th>
-        //   </tr>
-        //   <tr>
-        //     <th>time: {latestBlock.time}</th>
-        //   </tr>
-        //   <tr>
-        //     <th>prev_block: 0x{latestBlock.previous_hash}</th>
-        //   </tr>
-        //   <tr>
-        //     <th>prev_block: 0x{latestBlock.previous_hash}</th>
-        //   </tr>
-        //   <tr>
-        //     <th>prev_block: 0x{latestBlock.previous_hash}</th>
-        //   </tr>
-        //   <tr>
-        //     <th>prev_block: 0x{latestBlock.previous_hash}</th>
-        //   </tr>
-        //   <tr>
-        //     <th>prev_block: 0x{latestBlock.previous_hash}</th>
-        //   </tr>
-        // </thead> */}
+        <hr />
         <Table dark>
           <thead>
             <tr>

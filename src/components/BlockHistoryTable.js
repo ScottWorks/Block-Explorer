@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, ListGroup, ListGroupItem, Table } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 class BlockHistoryTable extends Component {
   render() {

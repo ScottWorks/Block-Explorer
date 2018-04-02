@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-import {
-  InputGroup,
-  InputGroupAddon,
-  Input,
-  Button,
-  Jumbotron
-} from 'reactstrap';
+import { InputGroup, InputGroupAddon, Input } from 'reactstrap';
 
 import BlockSearch from './BlockSearch';
 import LatestBlock from './LatestBlock';
@@ -100,29 +94,36 @@ class Blocks extends Component {
 
     return (
       <div className="App">
-        <ButtonComp
-          function={this.getLatestBlock}
-          children={'Get the Latest Block'}
-        />
-        {latestBlockCacheNotEmpty}
-        <HeaderComp children={'Block Finder'} />
-        <InputGroup>
-          <InputGroupAddon addonType="prepend">
-            <ButtonComp
-              function={this.addBlockToNode}
-              children={'Search for Block'}
-            />
-          </InputGroupAddon>
-          <Input
-            type="text"
-            name="hash_input"
-            id="hash_input"
-            value={this.state.hash}
-            placeholder="Enter Block Hash"
-            onChange={this.handleChange}
+        <div className="container">
+          <ButtonComp
+            function={this.getLatestBlock}
+            children={'Get the Latest Block'}
           />
-        </InputGroup>
-        {searchCacheNotEmpty}
+          {latestBlockCacheNotEmpty}
+        </div>
+        <div className="container">
+          <HeaderComp children={'Block Finder'} />
+          <hr />
+          <div className="input_container">
+            <InputGroup>
+              <InputGroupAddon addonType="prepend">
+                <ButtonComp
+                  function={this.addBlockToNode}
+                  children={'Search for Block'}
+                />
+              </InputGroupAddon>
+              <Input
+                type="text"
+                name="hash_input"
+                id="hash_input"
+                value={this.state.hash}
+                placeholder="Enter Block Hash"
+                onChange={this.handleChange}
+              />
+            </InputGroup>
+          </div>
+        </div>
+        <div className="container">{searchCacheNotEmpty}</div>
       </div>
     );
   }
