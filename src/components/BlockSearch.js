@@ -10,7 +10,6 @@ class BlockSearch extends Component {
     return (
       <div className="container">
         <HeaderComp children={'Block Details'} />
-        <hr />
         <Table dark>
           <thead>
             <tr>
@@ -45,7 +44,7 @@ class BlockSearch extends Component {
             </tr>
           </thead>
         </Table>
-        <div>
+        <div className="container">
           <BlockHistory
             blockHistory={searchHistory}
             removeBlock={this.props.removeBlock}

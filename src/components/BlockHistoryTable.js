@@ -6,17 +6,15 @@ class BlockHistoryTable extends Component {
     const { blockHeight, hash, time, id, removeBlock } = this.props;
 
     return (
-      <tbody>
-        <tr>
-          <td>{id}</td>
-          <td>{hash}</td>
-          <td>{blockHeight}</td>
-          <td>{time}</td>
-          <td>
-            <Button onClick={() => removeBlock(id)}>Remove</Button>
-          </td>
-        </tr>
-      </tbody>
+      <tr>
+        <td>{id}</td>
+        <td>{hash}</td>
+        <td>{blockHeight}</td>
+        <td>{time}</td>
+        <td>
+          <Button onClick={() => removeBlock(id)}>Remove</Button>
+        </td>
+      </tr>
     );
   }
 }

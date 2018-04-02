@@ -1,24 +1,25 @@
 body {
+  height: 100vh;
   margin: auto;
   padding: 40px;
   font-family: sans-serif;
-  /* background-image: url('./images/pattern.jpg');
-  background-size: cover;
+  background-image: url('./images/Boxes.svg');
+  /* background-size: cover;
   background-position: center; */
 }
 
-.crypto {
+#Rectangle {
   fill: white;
   stroke: black;
-  stroke-dasharray: 800;
+  stroke-dasharray: 1200;
   stroke-dashoffset: 0;
-  -webkit-animation: dash 20s linear forwards;
-  animation: dash 20s linear forwards;
+  -webkit-animation: dash 60s linear forwards;
+  animation: dash 60s linear forwards;
 }
 
 @-webkit-keyframes dash {
   from {
-    stroke-dashoffset: 800;
+    stroke-dashoffset: 1200;
   }
   to {
     stroke-dashoffset: 0;
@@ -29,7 +30,7 @@ body {
   text-align: center;
   background-color: #222;
   padding: 20px;
-  margin: 50px 350px;
+  margin: 50px 325px;
   color: white;
 }
 
@@ -41,7 +42,6 @@ body {
 .header {
   background-color: #222;
   height: 175px;
-  /* padding: 20px; */
   color: white;
 }
 
@@ -54,7 +54,7 @@ body {
 }
 
 .title_component {
-  margin: 20px;
+  margin: 30px 0px;
 }
 
 h1 {
@@ -78,14 +78,17 @@ tr {
 }
 
 .table_container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow-y: scroll;
 }
 
-/* .container{
-  background-color: #222;
-  height: 175px;
-  padding: 20px;
-  color: white;
-} */
+#search_history {
+  position: absolute;
+  left: -0.75vw;
+}
+
+#search_history tr {
+  font-size: 1.05rem;
+}

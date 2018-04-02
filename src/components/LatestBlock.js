@@ -10,7 +10,6 @@ class LatestBlock extends Component {
     return (
       <div className="container">
         <HeaderComp children={'Latest Block'} />
-        <hr />
         <Table dark>
           <thead>
             <tr>

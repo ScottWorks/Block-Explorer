@@ -103,7 +103,6 @@ class Blocks extends Component {
         </div>
         <div className="container">
           <HeaderComp children={'Block Finder'} />
-          <hr />
           <div className="input_container">
             <InputGroup>
               <InputGroupAddon addonType="prepend">
@@ -123,7 +122,7 @@ class Blocks extends Component {
             </InputGroup>
           </div>
         </div>
-        <div className="container">{searchCacheNotEmpty}</div>
+        {searchCacheNotEmpty}
       </div>
     );
   }
