@@ -48,13 +48,13 @@ class Blocks extends Component {
   addBlockToNode() {
     const { hash } = this.state;
     axios.post(`${blocksBaseURL}`, { hash }).then((res) => {
-      let blockHistory = res.data.slice(0, res.data.length);
-      let lastSearch = res.data[0];
+      // let blockHistory = res.data.slice(1, res.data.length);
+      // let lastSearch = res.data[0];
 
       this.setState({
         hash: '',
-        nodeStoredBlocks: blockHistory,
-        nodeSearchBlock: lastSearch
+        nodeStoredBlocks: res.data,
+        nodeSearchBlock: res.data[0]
       });
     });
   }
