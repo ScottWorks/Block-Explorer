@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { InputGroup, InputGroupAddon, Input } from 'reactstrap';
+
 import BlockSearch from './BlockSearch';
 import LatestBlock from './LatestBlock';
-import Button from './Button';
-import Header from './Header';
+import ButtonComp from './ButtonComp';
+import HeaderComp from './HeaderComp';
 import axios from 'axios';
 
 const blocksBaseURL = '/api/blocks';
@@ -26,10 +28,10 @@ class Blocks extends Component {
 
   componentDidMount() {
     this.readBlocksFromNode();
+    this.getLatestBlock();
   }
 
   handleChange(event) {
-    console.log(event.target.value);
     this.setState({
       hash: event.target.value
     });
@@ -91,27 +93,35 @@ class Blocks extends Component {
       ) : null;
 
     return (
-      <div className="App">
-        <Button
-          function={this.getLatestBlock}
-          children={'Get the Latest Block'}
-        />
-
-        {latestBlockCacheNotEmpty}
-
-        <Header children={'Block Finder'} />
-
-        <input
-          type="text"
-          name="hash_input"
-          id="hash_input"
-          value={this.state.hash}
-          placeholder="Enter Block Hash"
-          onChange={this.handleChange}
-        />
-
-        <Button function={this.addBlockToNode} children={'Search for Block'} />
-
+      <div className="container">
+        <div className="container">
+          <ButtonComp
+            function={this.getLatestBlock}
+            children={'Get the Latest Block'}
+          />
+          {latestBlockCacheNotEmpty}
+        </div>
+        <div className="container">
+          <HeaderComp children={'Block Finder'} />
+          <div className="input_container">
+            <InputGroup>
+              <InputGroupAddon addonType="prepend">
+                <ButtonComp
+                  function={this.addBlockToNode}
+                  children={'Search for Block'}
+                />
+              </InputGroupAddon>
+              <Input
+                type="text"
+                name="hash_input"
+                id="hash_input"
+                value={this.state.hash}
+                placeholder="Enter Block Hash"
+                onChange={this.handleChange}
+              />
+            </InputGroup>
+          </div>
+        </div>
         {searchCacheNotEmpty}
       </div>
     );

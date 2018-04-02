@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
-import Button from './Button';
+import { Button } from 'reactstrap';
 
 class BlockHistoryTable extends Component {
   render() {
-    const { blockHeight, time, id, removeBlock } = this.props;
+    const { blockHeight, hash, time, id, removeBlock } = this.props;
 
     return (
-      <div className="App">
-        <p>{blockHeight}</p>
-        <p>{time}</p>
-        <button onClick={() => removeBlock(id)}>Remove</button>
-      </div>
+      <tr>
+        <td>{id}</td>
+        <td>{hash}</td>
+        <td>{blockHeight}</td>
+        <td>{time}</td>
+        <td>
+          <Button onClick={() => removeBlock(id)}>Remove</Button>
+        </td>
+      </tr>
     );
   }
 }

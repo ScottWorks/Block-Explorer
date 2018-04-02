@@ -1,28 +1,55 @@
 import React, { Component } from 'react';
+import { Table } from 'reactstrap';
 import BlockHistory from './BlockHistory';
-import Header from './Header';
+import HeaderComp from './HeaderComp';
 
 class BlockSearch extends Component {
   render() {
     const { searchHistory, lastSearch } = this.props;
 
     return (
-      <div className="App">
-        <Header children={'Block Details'} />
-        <p>Hash: 0x{lastSearch.hash}</p>
-        <p>Block Height: {lastSearch.height}</p>
-        <p>total: {lastSearch.total}</p>
-        <p>fees: {lastSearch.fees}</p>
-        <p># of Transactions: {lastSearch.n_tx}</p>
-        <p>size: {lastSearch.size}</p>
-        <p>nonce: {lastSearch.nonce}</p>
-        <p>prev_block: 0x{lastSearch.prev_block}</p>
-        <p>mrkl_root: {lastSearch.mrkl_root}</p>
-        <p>time: {lastSearch.time}</p>
-        <BlockHistory
-          blockHistory={searchHistory}
-          removeBlock={this.props.removeBlock}
-        />
+      <div className="container">
+        <HeaderComp children={'Block Details'} />
+        <Table dark>
+          <thead>
+            <tr>
+              <th>Hash: 0x{lastSearch.hash}</th>
+            </tr>
+            <tr>
+              <th>Block Height: {lastSearch.height}</th>
+            </tr>
+            <tr>
+              <th>total: {lastSearch.total}</th>
+            </tr>
+            <tr>
+              <th>fees: {lastSearch.fees}</th>
+            </tr>
+            <tr>
+              <th># of Transactions: {lastSearch.n_tx}</th>
+            </tr>
+            <tr>
+              <th>size: {lastSearch.size}</th>
+            </tr>
+            <tr>
+              <th>nonce: {lastSearch.nonce}</th>
+            </tr>
+            <tr>
+              <th>prev_block: 0x{lastSearch.prev_block}</th>
+            </tr>
+            <tr>
+              <th>mrkl_root: {lastSearch.mrkl_root}</th>
+            </tr>
+            <tr>
+              <th>time: {lastSearch.time}</th>
+            </tr>
+          </thead>
+        </Table>
+        <div className="container">
+          <BlockHistory
+            blockHistory={searchHistory}
+            removeBlock={this.props.removeBlock}
+          />
+        </div>
       </div>
     );
   }
